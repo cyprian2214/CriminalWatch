@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Most Wanted Criminals</title>
+</head>
+<body>
+    <h1>Most Wanted Criminals</h1>
+    <form action="/submit" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="image_url">Image URL:</label><br>
+        <input type="text" id="image_url" name="image_url"><br>
+        <label for="information">Information:</label><br>
+        <textarea id="information" name="information"></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+    
+    <hr>
+    
+    <h2>Current Most Wanted</h2>
+    <ul>
+        {% for criminal in criminals %}
+        <li>
+            <h3>{{ criminal['name'] }}</h3>
+            <img src="{{ criminal['image_url'] }}" alt="Criminal Image" width="200">
+            <p>{{ criminal['information'] }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
